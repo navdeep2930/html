@@ -1,0 +1,625 @@
+<div class="col-sm-12 col-md-8 col-xl-6 rounded-3 tutorial-content" id="mainContent">
+<h1>newFixedThreadPool Method</h1>
+<hr>
+<div id="google-top-ads">
+<div style="text-align:center" class="google-top-ads">
+<div id="adp_top_ads" style="text-align:center!important;max-height:90px!important"><div id="00000001-9e72394b-a82d-4126-9fdf-ac2c022ea6e9" class="_ap_apex_ad" data-section="00000001-9e72394b-a82d-4126-9fdf-ac2c022ea6e9" data-orig-id="8014640d-fd34-4b2e-9b1b-cc67234a2325" data-render-time="1675148187173" style="text-align: center; margin: 10px auto; display: block;"><!--  AP-TutorialsPoint instream video tag -->
+<div id="00000001-ee46707b-cbfa-46f9-babc-ccf6b28d3bd5" class="_ap_apex_ad" data-section="00000001-ee46707b-cbfa-46f9-babc-ccf6b28d3bd5" data-orig-id="4b21e722-e949-42fa-bb40-6bcf145f80fc" data-render-time="1675148187176" data-ap-network="adpTags" data-refresh-time="1675148408061" data-timeout="822" style="text-align: center; margin: 0px auto; display: block;"><div id="ADP_40046_728x90_00000001-ee46707b-cbfa-46f9-babc-ccf6b28d3bd5" style="text-align: center; margin: 0 auto;" data-google-query-id="CN6O_I6e8fwCFUQRaAodvr4NYg">
+
+<div id="google_ads_iframe_/103512698,60931893/22823334854_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 90px;"><iframe frameborder="0" src="https://46de4f85975081789e89ad3d6494db6a.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/103512698,60931893/22823334854_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" role="region" aria-label="Advertisement" tabindex="0" data-google-container-id="2" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div></div></div>
+<div id="videoAdSlot" style="max-width: 640px; margin: auto"></div>
+<script type="text/javascript" language="javascript">
+    adpushup.triggerAd("4b21e722-e949-42fa-bb40-6bcf145f80fc");
+    var sendLog = function (eventName, log) {
+        var data = btoa(JSON.stringify(log));
+        var img = document.createElement("img");
+        img.src =
+            "https://aplogger.adpushup.com/log?event=" + eventName + "&data=" + data;
+    };
+    var trafficSplitNumber = Math.random() * 100;
+    var queryParamsString = window.location.search;
+    try {
+        if (queryParamsString.includes("triggerVideoJs=true")) {
+            var sectionId = 'videoAdSlot';
+            var adContainer = document.getElementById(sectionId);
+            adContainer.style.visibility = 'hidden';
+            var scr = document.createElement('script');
+            scr.src = "https://cdn.adpushup.com/" + adpushup.config.siteId + "/videoJsBundle.js";
+            scr.type = 'text/javascript';
+            scr.language = 'javascript';
+            adContainer.appendChild(scr);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+</script></div></div>
+<script>
+     var adPos = document.getElementById('adp_top_ads');
+     var ad_id_720 = "8014640d-fd34-4b2e-9b1b-cc67234a2325";
+     var ad_id_650 = "2d1bb2c4-eb72-471d-9c80-1bf5514728c1";
+     var ad_id_300 = "75e8929b-e21c-41ad-bca5-5cb2601dc07b";
+     var width = window.innerWidth;
+     var ad_id = ad_id_720;
+     if( width <= 768 ){
+        ad_id =  ad_id_300;
+     }else if( width <= 1435 ){
+        ad_id =  ad_id_650;
+     }
+     adPos.innerHTML = '<div id="' + ad_id + '" class="_ap_apex_ad"></div>';
+     var adpushup = adpushup || {};
+     adpushup.que = adpushup.que || [];
+     adpushup.que.push(function() {
+     adpushup.triggerAd(ad_id);
+     });
+</script>
+</div>
+</div>
+<div class="mui-container-fluid button-borders">
+<div class="pre-btn">
+<a href="/java_concurrency/concurrency_scheduledexecutorservice.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/java_concurrency/concurrency_newcachedthreadpool.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<div class="clearer"></div>
+<p>A fixed thread pool can be obtainted by calling the static newFixedThreadPool() method of Executors class.</p>
+<h2>Syntax</h2>
+<pre class="result notranslate" style="position: relative;">ExecutorService fixedPool = Executors.newFixedThreadPool(2);
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<p>where</p>
+<ul class="list">
+<li><p>Maximum 2 threads will be active to process tasks.</p></li>
+<li><p>If more than 2 threads are submitted then they are held in a queue until threads become available.</p></li>
+<li><p>A new thread is created to take its place if a thread terminates due to failure during execution shutdown on executor is not yet called.</p></li>
+<li><p>Any thread exists till the pool is shutdown.</p></li>
+</ul>
+<h2>Example</h2>
+<p>The following TestThread program shows usage of newFixedThreadPool method in thread based environment.</p>
+<div class="demo-view">
+<a href="http://tpcg.io/SYFz5b" target="_blank" rel="nofollow" class="demo"><i class="fa-external-link"></i> Live Demo</a>
+</div>
+<pre class="prettyprint notranslate prettyprinted" style="position: relative;"><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="pln">concurrent</span><span class="pun">.</span><span class="typ">ExecutorService</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="pln">concurrent</span><span class="pun">.</span><span class="typ">Executors</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="pln">concurrent</span><span class="pun">.</span><span class="typ">ThreadPoolExecutor</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.</span><span class="pln">concurrent</span><span class="pun">.</span><span class="typ">TimeUnit</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">TestThread</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> arguments</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">InterruptedException</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">ExecutorService</span><span class="pln"> executor </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Executors</span><span class="pun">.</span><span class="pln">newFixedThreadPool</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// Cast the object to its class type</span><span class="pln">
+      </span><span class="typ">ThreadPoolExecutor</span><span class="pln"> pool </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">ThreadPoolExecutor</span><span class="pun">)</span><span class="pln"> executor</span><span class="pun">;</span><span class="pln">
+
+      </span><span class="com">//Stats before tasks execution</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Largest executions: "</span><span class="pln">
+         </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getLargestPoolSize</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Maximum allowed threads: "</span><span class="pln">
+         </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getMaximumPoolSize</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Current threads in pool: "</span><span class="pln">
+         </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getPoolSize</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Currently executing threads: "</span><span class="pln">
+         </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getActiveCount</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Total number of threads(ever scheduled): "</span><span class="pln">
+         </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getTaskCount</span><span class="pun">());</span><span class="pln">
+
+      executor</span><span class="pun">.</span><span class="pln">submit</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Task</span><span class="pun">());</span><span class="pln">
+      executor</span><span class="pun">.</span><span class="pln">submit</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Task</span><span class="pun">());</span><span class="pln">
+
+      </span><span class="com">//Stats after tasks execution</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Core threads: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getCorePoolSize</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Largest executions: "</span><span class="pln">
+         </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getLargestPoolSize</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Maximum allowed threads: "</span><span class="pln">
+         </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getMaximumPoolSize</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Current threads in pool: "</span><span class="pln">
+         </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getPoolSize</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Currently executing threads: "</span><span class="pln">
+         </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getActiveCount</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Total number of threads(ever scheduled): "</span><span class="pln">
+         </span><span class="pun">+</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">getTaskCount</span><span class="pun">());</span><span class="pln">
+
+      executor</span><span class="pun">.</span><span class="pln">shutdown</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">  
+
+   </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Task</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Runnable</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+      </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> run</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         
+         </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">Long</span><span class="pln"> duration </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">long</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">5</span><span class="pun">);</span><span class="pln">
+            </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Running Task! Thread Name: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+               </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">currentThread</span><span class="pun">().</span><span class="pln">getName</span><span class="pun">());</span><span class="pln">
+               </span><span class="typ">TimeUnit</span><span class="pun">.</span><span class="pln">SECONDS</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="pln">duration</span><span class="pun">);</span><span class="pln">
+            
+            </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Task Completed! Thread Name: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+               </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">currentThread</span><span class="pun">().</span><span class="pln">getName</span><span class="pun">());</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">InterruptedException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            e</span><span class="pun">.</span><span class="pln">printStackTrace</span><span class="pun">();</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<p>This will produce the following result.</p>
+<h2>Output</h2>
+<pre class="result notranslate" style="position: relative;">Largest executions: 0
+Maximum allowed threads: 2
+Current threads in pool: 0
+Currently executing threads: 0
+Total number of threads(ever scheduled): 0
+Core threads: 2
+Largest executions: 2
+Maximum allowed threads: 2
+Current threads in pool: 2
+Currently executing threads: 1
+Total number of threads(ever scheduled): 2
+Running Task! Thread Name: pool-1-thread-1
+Running Task! Thread Name: pool-1-thread-2
+Task Completed! Thread Name: pool-1-thread-2
+Task Completed! Thread Name: pool-1-thread-1
+
+>>Java Concurrency Tutorial>>
+Concurrency - Home
+Concurrency - Overview
+Concurrency - Environment Setup
+Concurrency - Major Operations
+Interthread Communication
+Concurrency - Synchronization
+Concurrency - Deadlock
+>>Utility Class Examples>>
+Concurrency - ThreadLocal
+Concurrency - ThreadLocalRandom
+>>Lock Examples>>
+Concurrency - Lock
+Concurrency - ReadWriteLock
+Concurrency - Condition
+>>Atomic Variable Examples>>
+Concurrency - AtomicInteger
+Concurrency - AtomicLong
+Concurrency - AtomicBoolean
+Concurrency - AtomicReference
+Concurrency - AtomicIntegerArray
+Concurrency - AtomicLongArray
+Concurrency - AtomicReferenceArray
+>>Executor Examples>>
+Concurrency - Executor
+Concurrency - ExecutorService
+ScheduledExecutorService
+>>Thread Pool Examples>>
+Concurrency - newFixedThreadPool
+Concurrency - newCachedThreadPool
+newScheduledThreadPool
+newSingleThreadExecutor
+Concurrency - ThreadPoolExecutor
+ScheduledThreadPoolExecutor
+>>Advanced Examples>>
+Concurrency - Futures and Callables
+Concurrency - Fork-Join framework
+>>Concurrent Collections>>
+Concurrency - BlockingQueue
+Concurrency - ConcurrentMap
+ConcurrentNavigableMap
+Concurrency Useful Resources
+Concurrency - Quick Guide
+>>Concurrency - Useful Resources>>
+Concurrency - Discussion
+>>Selected Reading>>
+UPSC IAS Exams Notes
+Developer's Best Practices
+Questions and Answers
+Effective Resume Writing
+HR Interview Questions
+Computer Glossary
+Who is Who
+
+==========
+==========
+>>Java Concurrency Tutorial>>
+Concurrency - Home
+----------------------------------------------------------------------------------
+Java is a multi-threaded programming language which means we can develop multi-threaded program using Java. 
+A multi-threaded program contains two or more parts that can run concurrently and each part can handle a different task at the same time making optimal use
+ of the available resources specially when your computer has multiple CPUs. 
+ Multi-threading enables you to write in a way where multiple activities can proceed concurrently in the same program.
+Java is a high-level programming language originally developed by Sun Microsystems and released in 1995. Java runs on a variety of platforms, 
+such as Windows, Mac OS, and the various versions of UNIX. This tutorial gives a complete understanding of Java. 
+This reference will take you through simple and practical approaches while learning Java Concurrency framework provided by Java Programming language.
+
+Audience
+This tutorial has been prepared for the beginners to help them understand the basic to advanced concepts related to Java Concurrency framework 
+of Java Programming language.
+
+Prerequisites
+Before you start practicing various types of examples given in this reference, we assume that you are already aware about computer programs
+ and computer programming languages.
+
+Concurrency - Overview
+----------------------------------------------------------------------------------
+Java is a multi-threaded programming language which means we can develop multi-threaded program using Java. A multi-threaded program contains two or more parts that can run concurrently and each part can handle a different task at the same time making optimal use of the available resources specially when your computer has multiple CPUs.
+
+By definition, multitasking is when multiple processes share common processing resources such as a CPU. Multi-threading extends the idea of multitasking into applications where you can subdivide specific operations within a single application into individual threads. Each of the threads can run in parallel. The OS divides processing time not only among different applications, but also among each thread within an application.
+
+Multi-threading enables you to write in a way where multiple activities can proceed concurrently in the same program.
+
+Life Cycle of a Thread
+A thread goes through various stages in its life cycle. For example, a thread is born, started, runs, and then dies. The following diagram shows the complete life cycle of a thread.
+
+Java Thread
+Following are the stages of the life cycle −
+
+New − A new thread begins its life cycle in the new state. It remains in this state until the program starts the thread. It is also referred to as a born thread.
+
+Runnable − After a newly born thread is started, the thread becomes runnable. A thread in this state is considered to be executing its task.
+
+Waiting − Sometimes, a thread transitions to the waiting state while the thread waits for another thread to perform a task. A thread transitions back to the runnable state only when another thread signals the waiting thread to continue executing.
+
+Timed Waiting − A runnable thread can enter the timed waiting state for a specified interval of time. A thread in this state transitions back to the runnable state when that time interval expires or when the event it is waiting for occurs.
+
+Terminated (Dead) − A runnable thread enters the terminated state when it completes its task or otherwise terminates.
+
+Thread Priorities
+Every Java thread has a priority that helps the operating system determine the order in which threads are scheduled.
+
+Java thread priorities are in the range between MIN_PRIORITY (a constant of 1) and MAX_PRIORITY (a constant of 10). By default, every thread is given priority NORM_PRIORITY (a constant of 5).
+
+Threads with higher priority are more important to a program and should be allocated processor time before lower-priority threads. However, thread priorities cannot guarantee the order in which threads execute and are very much platform dependent.
+
+Create a Thread by Implementing a Runnable Interface
+If your class is intended to be executed as a thread then you can achieve this by implementing a Runnable interface. You will need to follow three basic steps −
+
+Step 1
+As a first step, you need to implement a run() method provided by a Runnable interface. This method provides an entry point for the thread and you will put your complete business logic inside this method. Following is a simple syntax of the run() method −
+
+public void run( )
+Step 2
+As a second step, you will instantiate a Thread object using the following constructor −
+
+Thread(Runnable threadObj, String threadName);
+Where, threadObj is an instance of a class that implements the Runnable interface and threadName is the name given to the new thread.
+
+Step 3
+Once a Thread object is created, you can start it by calling start() method, which executes a call to run( ) method. Following is a simple syntax of start() method −
+
+void start();
+Example
+
+Here is an example that creates a new thread and starts running it −
+
+ Live Demo
+class RunnableDemo implements Runnable {
+   private Thread t;
+   private String threadName;
+
+   RunnableDemo(String name) {
+      threadName = name;
+      System.out.println("Creating " +  threadName );
+   }
+   
+   public void run() {
+      System.out.println("Running " +  threadName );
+      
+      try {
+      
+         for(int i = 4; i > 0; i--) {
+            System.out.println("Thread: " + threadName + ", " + i);
+            
+            // Let the thread sleep for a while.
+            Thread.sleep(50);
+         }
+      } catch (InterruptedException e) {
+         System.out.println("Thread " +  threadName + " interrupted.");
+      }
+      System.out.println("Thread " +  threadName + " exiting.");
+   }
+   
+   public void start () {
+      System.out.println("Starting " +  threadName );
+      
+      if (t == null) {
+         t = new Thread (this, threadName);
+         t.start ();
+      }
+   }
+}
+
+public class TestThread {
+
+   public static void main(String args[]) {
+      RunnableDemo R1 = new RunnableDemo("Thread-1");
+      R1.start();
+      
+      RunnableDemo R2 = new RunnableDemo("Thread-2");
+      R2.start();
+   }   
+}
+This will produce the following result −
+
+Output
+
+Creating Thread-1
+Starting Thread-1
+Creating Thread-2
+Starting Thread-2
+Running Thread-1
+Thread: Thread-1, 4
+Running Thread-2
+Thread: Thread-2, 4
+Thread: Thread-1, 3
+Thread: Thread-2, 3
+Thread: Thread-1, 2
+Thread: Thread-2, 2
+Thread: Thread-1, 1
+Thread: Thread-2, 1
+Thread Thread-1 exiting.
+Thread Thread-2 exiting.
+Create a Thread by Extending a Thread Class
+The second way to create a thread is to create a new class that extends Thread class using the following two simple steps. This approach provides more flexibility in handling multiple threads created using available methods in Thread class.
+
+Step 1
+You will need to override run( ) method available in Thread class. This method provides an entry point for the thread and you will put your complete business logic inside this method. Following is a simple syntax of run() method −
+
+public void run( )
+Step 2
+Once Thread object is created, you can start it by calling start() method, which executes a call to run( ) method. Following is a simple syntax of start() method −
+
+void start( );
+Example
+
+Here is the preceding program rewritten to extend the Thread −
+
+ Live Demo
+class ThreadDemo extends Thread {
+   private Thread t;
+   private String threadName;
+   
+   ThreadDemo(String name) {
+      threadName = name;
+      System.out.println("Creating " +  threadName );
+   }
+   
+   public void run() {
+      System.out.println("Running " +  threadName );
+      
+      try {
+
+         for(int i = 4; i > 0; i--) {
+            System.out.println("Thread: " + threadName + ", " + i);
+            
+            // Let the thread sleep for a while.
+            Thread.sleep(50);
+         }
+      } catch (InterruptedException e) {
+         System.out.println("Thread " +  threadName + " interrupted.");
+      }
+      System.out.println("Thread " +  threadName + " exiting.");
+   }
+   
+   public void start () {
+      System.out.println("Starting " +  threadName );
+      
+      if (t == null) {
+         t = new Thread (this, threadName);
+         t.start ();
+      }
+   }
+}
+
+public class TestThread {
+
+   public static void main(String args[]) {
+      ThreadDemo T1 = new ThreadDemo("Thread-1");
+      T1.start();
+      
+      ThreadDemo T2 = new ThreadDemo("Thread-2");
+      T2.start();
+   }   
+}
+This will produce the following result −
+
+Output
+
+Creating Thread-1
+Starting Thread-1
+Creating Thread-2
+Starting Thread-2
+Running Thread-1
+Thread: Thread-1, 4
+Running Thread-2
+Thread: Thread-2, 4
+Thread: Thread-1, 3
+Thread: Thread-2, 3
+Thread: Thread-1, 2
+Thread: Thread-2, 2
+Thread: Thread-1, 1
+Thread: Thread-2, 1
+Thread Thread-1 exiting.
+Thread Thread-2 exiting.
+
+Concurrency - Environment Setup
+----------------------------------------------------------------------------------
+
+
+Concurrency - Major Operations
+----------------------------------------------------------------------------------
+
+
+Interthread Communication
+----------------------------------------------------------------------------------
+
+
+Concurrency - Synchronization
+----------------------------------------------------------------------------------
+
+
+Concurrency - Deadlock
+----------------------------------------------------------------------------------
+
+
+>>Utility Class Examples>>
+Concurrency - ThreadLocal
+----------------------------------------------------------------------------------
+
+
+Concurrency - ThreadLocalRandom
+----------------------------------------------------------------------------------
+
+
+>>Lock Examples>>
+Concurrency - Lock
+----------------------------------------------------------------------------------
+
+
+Concurrency - ReadWriteLock
+----------------------------------------------------------------------------------
+
+
+Concurrency - Condition
+----------------------------------------------------------------------------------
+
+
+>>Atomic Variable Examples>>
+Concurrency - AtomicInteger
+----------------------------------------------------------------------------------
+
+
+Concurrency - AtomicLong
+----------------------------------------------------------------------------------
+
+
+Concurrency - AtomicBoolean
+----------------------------------------------------------------------------------
+
+
+Concurrency - AtomicReference
+----------------------------------------------------------------------------------
+
+
+Concurrency - AtomicIntegerArray
+----------------------------------------------------------------------------------
+
+
+Concurrency - AtomicLongArray
+----------------------------------------------------------------------------------
+
+
+Concurrency - AtomicReferenceArray
+----------------------------------------------------------------------------------
+
+
+>>Executor Examples>>
+Concurrency - Executor
+----------------------------------------------------------------------------------
+
+
+Concurrency - ExecutorService
+----------------------------------------------------------------------------------
+
+
+ScheduledExecutorService
+----------------------------------------------------------------------------------
+
+
+>>Thread Pool Examples>>
+Concurrency - newFixedThreadPool
+----------------------------------------------------------------------------------
+
+
+Concurrency - newCachedThreadPool
+----------------------------------------------------------------------------------
+
+
+newScheduledThreadPool
+----------------------------------------------------------------------------------
+
+
+newSingleThreadExecutor
+----------------------------------------------------------------------------------
+
+
+Concurrency - ThreadPoolExecutor
+----------------------------------------------------------------------------------
+
+
+ScheduledThreadPoolExecutor
+----------------------------------------------------------------------------------
+
+
+>>Advanced Examples>>
+Concurrency - Futures and Callables
+----------------------------------------------------------------------------------
+
+
+Concurrency - Fork-Join framework
+----------------------------------------------------------------------------------
+
+
+>>Concurrent Collections>>
+Concurrency - BlockingQueue
+----------------------------------------------------------------------------------
+
+
+Concurrency - ConcurrentMap
+----------------------------------------------------------------------------------
+
+
+ConcurrentNavigableMap
+----------------------------------------------------------------------------------
+
+
+Concurrency Useful Resources
+----------------------------------------------------------------------------------
+
+
+Concurrency - Quick Guide
+----------------------------------------------------------------------------------
+
+
+>>Concurrency - Useful Resources>>
+Concurrency - Discussion
+----------------------------------------------------------------------------------
+
+
+>>Selected Reading>>
+UPSC IAS Exams Notes
+Developer's Best Practices
+Questions and Answers
+Effective Resume Writing
+HR Interview Questions
+Computer Glossary
+Who is Who
+
+
+
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<div class="d-flex justify-content-between border-bottom border-top py-2" id="bottom_navigation">
+<a href="/java_concurrency/concurrency_scheduledexecutorservice.htm" class="pre-btn"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+<a id="print-page" href="#" class="pre-btn d-none d-sm-block"><i class="fal fa-print"></i> Print Page</a>
+<a href="/java_concurrency/concurrency_newcachedthreadpool.htm" class="nxt-btn">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+			<div class="google-bottom-ads" id="google-bottom-ads">
+				<div>Advertisements</div>
+				<div>
+					<div id="adp_bottom_ads"><div id="00000001-f6c6d06e-b4f9-4ae9-aff7-40348175929b" class="_ap_apex_ad" data-section="00000001-f6c6d06e-b4f9-4ae9-aff7-40348175929b" data-orig-id="4951d1d6-24d4-4a31-afb7-2c22c489eae1" data-render-time="1675148187183" data-ap-network="adpTags" style="text-align: center; margin: 0px auto; display: block;" data-refresh-time="1675148226484" data-timeout="377"><div id="ADP_40046_responsivexresponsive_00000001-f6c6d06e-b4f9-4ae9-aff7-40348175929b" style="text-align: center; margin: 0 auto;" data-google-query-id="CK70xrid8fwCFYNBaAodpl4OwQ">
+
+<div id="google_ads_iframe_/103512698,60931893/22614721936_0__container__" style="border: 0pt none; width: 100%; height: 100%;"><iframe id="google_ads_iframe_/103512698,60931893/22614721936_0" name="google_ads_iframe_/103512698,60931893/22614721936_0" title="3rd party ad content" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" role="region" aria-label="Advertisement" tabindex="0" style="border: 0px; vertical-align: top; width: 300px; height: 250px; display: inline-block;" data-google-container-id="3" data-load-complete="true"></iframe><iframe frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="300" height="250" style="border: 0px; vertical-align: top; width: 300px; height: 250px; display: inline-block; margin-left: 10px;"></iframe></div></div></div></div>
+					<script>
+						var adPos = document.getElementById('adp_bottom_ads');
+						var mobile_ad_id = "6d621d7e-9531-4f26-810f-68af67dc6366";
+						var desktop_ad_id = "4951d1d6-24d4-4a31-afb7-2c22c489eae1";
+						var adpushup = adpushup || {};
+						adpushup.que = adpushup.que || [];
+						adpushup.que.push(function() {
+							var ad_id = window.innerWidth <= 768 ? mobile_ad_id : desktop_ad_id;
+							adPos.innerHTML = '<div id="' + ad_id + '" class="_ap_apex_ad"></div>';
+							adpushup.triggerAd(ad_id);
+						});
+					</script>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
